@@ -1,0 +1,34 @@
+{
+  "name": "sync-version",
+  "version": "0.0.0",
+  "description": "Update version number with package.json",
+  "keywords": [
+    "build tool"
+  ],
+  "bin": "sync-version.js",
+  "scripts": {
+	"test": "eslint *.js",
+    "sync-version": "node sync-version.js sync-version.js",
+    "preversion": "npm test",
+    "version": "sync-version && git add .",
+    "postversion": "git push --follow-tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eight04/sync-version.git"
+  },
+  "author": "eight04 <eight04@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eight04/sync-version/issues",
+    "email": "eight04@gmail.com"
+  },
+  "homepage": "https://github.com/eight04/sync-version#readme",
+  "dependencies": {
+    "docopt": "^0.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^2.7.0"
+  },
+  "preferGlobal": true
+}
