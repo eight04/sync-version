@@ -11,7 +11,7 @@ Options:
 
 	fs = require("fs"),
 	docopt = require("docopt"),
-	pkg = require("./package.json"),
+	pkg = require("app-root-path").require("./package.json"),
 	
 	args = docopt.docopt(doc, {version: "0.1.0"}),
 	
