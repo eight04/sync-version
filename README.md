@@ -40,6 +40,7 @@ and update it.
 
 Changelog
 ---------
+* 0.1.1 (Apr 17, 2016)
+	- Use app-root-path.
 * 0.1.0 (Apr 16, 2016)
-	- First release
-
+	- First release.
