@@ -8,9 +8,8 @@
   "bin": "sync-version.js",
   "scripts": {
 	"test": "eslint *.js",
-    "sync-version": "node sync-version.js sync-version.js",
     "preversion": "npm test",
-    "version": "sync-version && git add .",
+    "version": "node sync-version.js sync-version.js && git add .",
     "postversion": "git push --follow-tags && npm publish"
   },
   "repository": {
