@@ -28,6 +28,5 @@
   },
   "devDependencies": {
     "eslint": "^2.7.0"
-  },
-  "preferGlobal": true
+  }
 }
