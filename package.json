@@ -7,7 +7,7 @@
   ],
   "bin": "sync-version.js",
   "scripts": {
-    "test": "eslint *.js",
+    "test": "eslint *.js && node test.js",
     "preversion": "npm test",
     "version": "node sync-version.js sync-version.js && git add .",
     "postversion": "git push --follow-tags && npm publish"
