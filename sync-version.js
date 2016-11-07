@@ -13,7 +13,7 @@ Options:
 	docopt = require("docopt"),
 	pkg = require("app-root-path").require("./package.json"),
 	
-	args = docopt.docopt(doc, {version: "0.1.1"}),
+	args = docopt.docopt(doc, {version: "0.2.0"}),
 	
 	res = [
 		/version["']?:\s*["']?([^\s'"]+)/,
