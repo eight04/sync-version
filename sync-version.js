@@ -15,7 +15,10 @@ Options:
 	
 	args = docopt.docopt(doc, {version: "0.1.1"}),
 	
-	versionRE = /version["']?:\s*["']?([^\s'"]+)/;
+	res = [
+		/version["']?:\s*["']?([^\s'"]+)/,
+		/^\/\/ @version\s+(\S+)/
+	];
 	
 if (!pkg.version) {
 	throw "cannot find version property in package.json";
@@ -32,12 +35,20 @@ for (i = 0; i < files.length; i++) {
 	}
 }
 
+function matchVersion(data) {
+	var i, match;
+	for (i = 0; i < res.length; i++) {
+		match = data.match(res[i]);
+		if (match) return match;
+	}
+}
+
 function logVersion(file) {
 	fs.readFile(file, "utf8", function(err, data){
 		if (err) {
 			throw err;
 		}
-		var match = data.match(versionRE);
+		var match = matchVersion(data);
 		if (!match) {
 			throw "cannot find version property in " + file;
 		}
@@ -50,7 +61,7 @@ function syncVersion(file) {
 		if (err) {
 			throw err;
 		}
-		var match = versionRE.exec(data);
+		var match = matchVersion(data);
 		if (!match) {
 			throw "cannot find version property in " + file;
 		}
