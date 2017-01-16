@@ -33,7 +33,7 @@ How does it work?
 The script will try finding the version number with
 
 ```
-/version["']?:\s*["']?([^\s'"]+)/
+/\bversion["']?:\s*["']?([^\s'"]+)/
 /^\/\/ @version\s+(\S+)/
 ```
 
@@ -41,6 +41,10 @@ and update it.
 
 Changelog
 ---------
+* 0.3.0 (Jan 17, 2016)
+	- Change RegExp, shouldn't match "whatever_**version**".
+	- Display package name on start.
+	- Drop app-root-path. Find package.json along the ascension folders from cwd.
 * 0.2.0 (Nov 7, 2016)
 	- Support userscript style `// @version 0.1.0`.
 * 0.1.1 (Apr 17, 2016)
