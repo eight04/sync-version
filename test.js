@@ -11,7 +11,7 @@ samples.forEach(fn => {
             `node sync-version.js --list ${fn}`,
             {encoding: "utf8"}
         ),
-        `package.json\t${pkg.version}\n${fn}\t0.1.0\n`
+        `Under sync-version\npackage.json\t${pkg.version}\n${fn}\t0.1.0\n`
     );
 });
 	
