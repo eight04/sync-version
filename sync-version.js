@@ -3,7 +3,7 @@
 var doc = `sync-version
 
 Usage:
-  sync-version [--list] <files>...
+  sync-version [--list] [<files>...]
   
 Options:
   <files>    Sync version number with package.json inside <file>.
@@ -11,19 +11,21 @@ Options:
 
 	fs = require("fs"),
 	docopt = require("docopt"),
-	pkg = require("app-root-path").require("./package.json"),
+	path = require("path"),
+	pkg = getPackage(),
 	
 	args = docopt.docopt(doc, {version: "0.2.0"}),
 	
 	res = [
-		/version["']?:\s*["']?([^\s'"]+)/,
+		/\bversion["']?:\s*["']?([^\s'"]+)/,
 		/^\/\/ @version\s+(\S+)/m
 	];
 	
 if (!pkg.version) {
 	throw "cannot find version property in package.json";
 }
-	
+
+console.log("Under " + pkg.name);
 console.log("package.json\t" + pkg.version);
 
 var i, files = args["<files>"];
@@ -35,6 +37,27 @@ for (i = 0; i < files.length; i++) {
 	}
 }
 
+function getPackage() {
+	var searchPath = process.cwd(),
+		pkg, pkgPath, nextSearchPath;
+	
+	do {
+		try {
+			pkgPath = path.join(searchPath, "package.json");
+			pkg = fs.readFileSync(pkgPath);
+		} catch (err) {
+			// pass
+		}
+		nextSearchPath = path.dirname(searchPath);
+		if (searchPath == nextSearchPath) {
+			throw "Can't find package.json";
+		}
+		searchPath = nextSearchPath;
+	} while (pkg == null);
+
+	return JSON.parse(pkg);
+}
+	
 function matchVersion(data) {
 	var i, match;
 	for (i = 0; i < res.length; i++) {
