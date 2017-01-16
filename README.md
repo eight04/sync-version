@@ -41,7 +41,7 @@ and update it.
 
 Changelog
 ---------
-* 0.3.0 (Jan 17, 2016)
+* 1.0.0 (Jan 17, 2016)
 	- Change RegExp, shouldn't match "whatever_**version**".
 	- Display package name on start.
 	- Drop app-root-path. Find package.json along the ascension folders from cwd.
