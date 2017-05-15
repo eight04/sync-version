@@ -10,8 +10,8 @@
     "test": "eslint *.js && node test.js",
     "preversion": "npm test",
     "version": "node sync-version.js sync-version.js && git add .",
-    "postversion": "git push --follow-tags && npm run publish",
-    "publish": "crlf --set=LF sync-version.js && npm publish"
+    "postversion": "git push --follow-tags && npm publish",
+    "prepublish": "crlf --set=LF sync-version.js"
   },
   "repository": {
     "type": "git",
