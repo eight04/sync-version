@@ -1,6 +1,6 @@
 {
   "name": "sync-version",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Update version number with package.json",
   "keywords": [
     "build tool"
@@ -11,7 +11,7 @@
     "preversion": "npm test",
     "version": "node sync-version.js sync-version.js && git add .",
     "postversion": "git push --follow-tags && npm run publish",
-	"publish": "crlf --set=LF sync-version.js && npm publish"
+    "publish": "crlf --set=LF sync-version.js && npm publish"
   },
   "repository": {
     "type": "git",
