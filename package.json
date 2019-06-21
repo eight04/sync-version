@@ -28,7 +28,7 @@
     "docopt": "^0.6.2"
   },
   "devDependencies": {
-    "crlf": "^1.1.0",
-    "eslint": "^2.7.0"
+    "crlf": "^1.1.1",
+    "eslint": "^5.16.0"
   }
 }
