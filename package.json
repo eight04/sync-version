@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "crlf": "^1.1.1",
-    "eslint": "^5.16.0"
+    "eslint": "^9.35.0"
   }
 }
