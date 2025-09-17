@@ -18,7 +18,7 @@ Options:
 	
 	res = [
 		/\bversion["']?:\s*["']?([^\s'"]+)/,
-		/^\/\/ @version\s+(\S+)/m
+		/^[/ ]*@version\s+(\S+)/m
 	];
 	
 if (!pkg.version) {
