@@ -35,12 +35,18 @@ The script will try finding the version number with
 ```
 /\bversion["']?:\s*["']?([^\s'"]+)/
 /^\/\/ @version\s+(\S+)/
+/^\s*@version\s+(\S+)/
 ```
 
 and update it.
 
 Changelog
 ---------
+
+* 1.1.0 (Sep 18, 2025)
+
+    - Add: new regexp to match version number in usercss.
+    
 * 1.0.1 (May 16, 2017)
 	- Fix: crlf breaks the executable on linux. [#1](https://github.com/eight04/sync-version/issues/1)
 * 1.0.0 (Jan 17, 2017)
