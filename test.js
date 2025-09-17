@@ -1,9 +1,10 @@
 var {execSync: exec} = require("child_process"),
 	assert = require("assert"),
+  {readdirSync: readdir} = require("fs"),
 
-	samples = ["sample.json", "sample.js", "sample.user.js"],
+	samples = readdir("test"),
 	pkg = require("./package.json");
-	
+
 samples.forEach(fn => {
 	fn = "test/" + fn;
   assert.equal(
