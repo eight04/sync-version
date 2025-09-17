@@ -14,7 +14,7 @@ Options:
 	path = require("path"),
 	pkg = getPackage(),
 	
-	args = docopt.docopt(doc, {version: "1.0.1"}),
+	args = docopt.docopt(doc, {version: "1.1.0"}),
 	
 	res = [
 		/\bversion["']?:\s*["']?([^\s'"]+)/,
